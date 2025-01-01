@@ -1,4 +1,7 @@
 # boot.yaml
+app:
+  name: hiplot
+  version: "v1.0.0"
 gin:
   - name: hiplot
     port: 8080
@@ -7,12 +10,21 @@ gin:
       enabled: true
     sw:
       enabled: true
+      path: docs
     docs:
       enabled: true
+      path: redoc
     prom:
       enabled: true
     middleware:
+      errorModel: google
       logging:
         enabled: true
       prom:
         enabled: true
+mongo:
+  - name: "hiplot"
+    enabled: true
+    simpleURI: "mongodb://luyang:luyang@192.168.3.28:27017/hiplot?authSource=portal"
+    database:
+      - name: "hiplot"
